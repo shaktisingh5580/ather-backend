@@ -1,0 +1,26 @@
+# Environment variables (CRITICAL: Do not commit your secret keys!)
+.env
+
+# Python compilation files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# IDE files
+.vscode/
+.idea/
+
+# YOLO/AI models (often too large for GitHub)
+models/*.pt
+runs/
+yolov8n.pt
+
+# Log files
+*.log
