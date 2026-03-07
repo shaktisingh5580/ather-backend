@@ -150,9 +150,25 @@ Allow admins to register additional vehicles for users who have reached their 1-
 - Form: Select User (dropdown), Plate Number, Vehicle Type (2-wheeler/4-wheeler)
 - API: `POST /user/vehicle` with `{plate_number, owner_id (from dropdown), vehicle_type}`
 
-### 11. User Management
+### 11. User Management & QR Registration
 Table of all registered users. API: `GET /admin/users`
 Columns: Name | Email | Phone | Role | Guardian Mode (🛡️ badge) | Default Zone | Registered
+
+**"Add User" Manual Form**
+Create a clean form card with the following fields:
+- **Full Name** (Input)
+- **College Email** (Input, e.g., `@scet.ac.in`)
+- **Phone Number** (Input, with +91 prefix)
+- **Role** (Select dropdown: `student`, `staff`, `guest`)
+- **Submit Button**: Makes the `POST` request to `/user/register`.
+  - On success (200 OK), show a success toast and clear the form.
+
+**"QR Code Self-Registration" Card**
+Allow students walking up to the security desk to scan a code and register on their own phones!
+- **Library Needed**: Install `qrcode.react` (`npm run install qrcode.react`)
+- **Card UI**: A distinct card titled "Scan to Register".
+- **QR Content**: The QR code should encode the absolute URL to the User Dashboard's registration page (e.g., `https://ather-user-frontend.vercel.app/register`).
+- **Design**: Render the QR Code prominently in the center of the card. Add a "Copy Link" button beneath it.
 
 ---
 

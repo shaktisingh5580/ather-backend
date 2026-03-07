@@ -124,6 +124,19 @@ For each zone, show a colored block:
 - "Report" button → `POST /user/page-vehicle` with `{blocked_plate, reporter_id: <user_id>}`
 - Success message: "The vehicle owner has been notified via WhatsApp."
 - Error if plate not found in system
+- **Design:** Use a Lucide React icon like `AlertTriangle` or `Megaphone`. Show a loading spinner on the button. Ensure elegant error handling if a `404 Not Found` returns.
+
+### 8. Dedicated Registration Route (`/register`)
+- Create a specific route (e.g., `/register`) that renders the Registration component directly.
+- This page needs to be mobile-first and look like a slick app onboarding screen, since 99% of people will be viewing this on their phones after scanning the Admin's QR code.
+- **Fields:** Full Name, College Email (`@scet.ac.in`), Phone Number (tell user it will be used for WhatsApp alerts), Role (`student` or `staff`).
+- **Post-Registration Flow:** Upon successful `200 OK` from `/user/register`, store the returned `user_id` and automatically redirect to the main Dashboard (`/dashboard`). Show a welcome toast: "Welcome! Please add your vehicle to complete setup."
+
+### 9. Map Navigation Trigger (Active Session)
+- When a user has an active parking session, they should see a "Get Directions" or "Navigate" button next to their Zone Name in the **Current Session** card.
+- **Icon:** Use the `Map` or `Navigation` icon.
+- **Logic:** Look up the assigned zone's `latitude` and `longitude` from your loaded Firebase `/zones` store.
+- **Action:** Open Google Maps in a new tab: `https://www.google.com/maps/dir/?api=1&destination=LAT,LNG`.
 
 ---
 
