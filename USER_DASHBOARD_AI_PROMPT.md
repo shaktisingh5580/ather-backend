@@ -37,19 +37,24 @@ Fields: Full Name, College Email, Phone Number (with +91 prefix), Role (student/
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
+// Configuration for Firebase
+// Replace the placeholder strings with your actual project credentials
 const firebaseConfig = {
-  apiKey: "AIzaSyC6i4-9iy_f3fd8jlnLFgvYY25iRi1JvCY",
-  authDomain: "anpr-for.firebaseapp.com",
-  databaseURL: "https://anpr-for-default-rtdb.firebaseio.com",
-  projectId: "anpr-for",
-  storageBucket: "anpr-for.firebasestorage.app",
-  messagingSenderId: "593668402418",
-  appId: "1:593668402418:web:46d87caa700e3622d2346b",
-  measurementId: "G-YS2RF8M8FG"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  databaseURL: "YOUR_DATABASE_URL",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+export { database, ref, onValue };
 
 // Real-time listener paths:
 // /zones            — live zone heatmap
